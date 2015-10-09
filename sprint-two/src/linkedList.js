@@ -15,7 +15,7 @@ var LinkedList = function() {
       this.head = this.tail
     }
   }
-
+  //constant
 
   list.removeHead = function() {
     var originalHead = this.head;
@@ -23,6 +23,8 @@ var LinkedList = function() {
     this.head = originalHead.next;
     return originalHead.value
   };
+
+  //constant
 
   list.contains = function(target) {
     var currNode = this.head
@@ -39,6 +41,8 @@ var LinkedList = function() {
 
   return list;
 };
+
+//linear
 
 var Node = function(value) {
   var node = {};

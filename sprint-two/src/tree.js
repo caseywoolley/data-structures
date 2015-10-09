@@ -1,28 +1,43 @@
-var Tree = function(value){
-  var newTree = {};
+var Tree = function(value) {
+  var newTree = Object.create(treeMethods);
   newTree.value = value;
 
   // your code here
-  newTree.children = null;  // fix me
+  newTree.children = [];
 
   return newTree;
 };
 
 
-
-
-
 var treeMethods = {};
 
-treeMethods.addChild = function(value){
+treeMethods.addChild = function(value) {
+
+  //[{value: 5},{value: 6}, {2:2}}
+
+  this.children.push(Tree(value))
 
 };
 
-treeMethods.contains = function(target){
+treeMethods.contains = function(target) {
 
+  var found = false;
+
+  var walkTree = function(node) {
+    if (node.value === target) {
+      found = true;
+    } else {
+      _.each(node.children, function(item) {
+        walkTree(item);
+      });
+    }
+  }
+
+  walkTree(this);
+  return found;
 };
 
-
+// 
 /*
  * Complexity: What is the time complexity of the above functions?
  */
