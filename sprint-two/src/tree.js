@@ -14,7 +14,6 @@ var treeMethods = {};
 treeMethods.addChild = function(value) {
 
   //[{value: 5},{value: 6}, {2:2}}
-
   this.children.push(Tree(value))
 
 };
@@ -22,7 +21,6 @@ treeMethods.addChild = function(value) {
 treeMethods.contains = function(target) {
 
   var found = false;
-
   var walkTree = function(node) {
     if (node.value === target) {
       found = true;
@@ -40,4 +38,5 @@ treeMethods.contains = function(target) {
 // 
 /*
  * Complexity: What is the time complexity of the above functions?
+  addChild is O(1) and contains is O(n)
  */

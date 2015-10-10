@@ -9,17 +9,12 @@ var Graph = function() {
 // ------------------------
 // Add a node to the graph, passing in the node's value.
 Graph.prototype.addNode = function(node) {
-  //this.node = {node: node};
-  //nodes[node] =
   this[node] = {
     "value": node,
     "edge": {}
   };
 
-  //console.log(this);
-
-  // penguins {edge: {puppies}} pupies {edge: penguins}	
-
+  // penguins {edge: {puppies}} pupies {edge: penguins} 
 };
 
 // ------------------------
@@ -64,4 +59,5 @@ Graph.prototype.forEachNode = function(cb) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ All methods are O(1) except forEachNode which is O(n)
  */

@@ -15,7 +15,6 @@ var LinkedList = function() {
       this.head = this.tail
     }
   }
-  //constant
 
   list.removeHead = function() {
     var originalHead = this.head;
@@ -24,25 +23,20 @@ var LinkedList = function() {
     return originalHead.value
   };
 
-  //constant
-
   list.contains = function(target) {
     var currNode = this.head
     while (currNode !== null) {
       if (currNode.value === target) {
-
         return true
       }
       currNode = currNode.next;
     }
-
     return false;
   };
 
   return list;
-};
 
-//linear
+};
 
 var Node = function(value) {
   var node = {};
@@ -55,4 +49,5 @@ var Node = function(value) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+  All methods are O(1) except contains which is O(n)
  */

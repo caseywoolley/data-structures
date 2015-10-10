@@ -8,22 +8,21 @@ var HashTable = function() {
 HashTable.prototype.insert = function(k, v) {
   var i = getIndexBelowMaxForKey(k, this._limit);
   if (!this._storage.get(i)) {
-    var empty = [];
-    this._storage.set(i, empty);
+    this._storage.set(i, []);
 
   }
   var foundIndex;
- var pairs = this._storage.get(i);
+  var pairs = this._storage.get(i);
   for (var j = 0; j < pairs.length; j++) {
     if (pairs[j][0] === k) {
-    	foundIndex = j;
+      foundIndex = j;
     }
   }
 
   if (foundIndex !== undefined) {
-  	pairs[foundIndex][1] = v;
+    pairs[foundIndex][1] = v;
   } else {
-  	pairs.push([ k, v ]);
+    pairs.push([k, v]);
   }
 
 };
@@ -40,20 +39,17 @@ HashTable.prototype.retrieve = function(k) {
   return null;
 };
 
-
 HashTable.prototype.remove = function(k) {
   var i = getIndexBelowMaxForKey(k, this._limit);
-   var pairs = this._storage.get(i);
+  var pairs = this._storage.get(i);
   for (var j = 0; j < pairs.length; j++) {
-  	if(pairs[j][0]===k){
-  		pairs[j].splice(j,1);
-  	}
+    if (pairs[j][0] === k) {
+      pairs[j].splice(j, 1);
+    }
   };
-
 };
-
-
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ All methods are O(1)
  */
